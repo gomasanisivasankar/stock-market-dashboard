@@ -1,23 +1,29 @@
-import logo from './logo.svg';
+// src/App.js
+import React from 'react';
+import Header from './components/Header';
+import MarketSummary from './components/MarketSummary';
+import SectorPerformance from './components/SectorPerformance';
+import MarketsAndChart from './components/MarketsAndChart';
 import './App.css';
+import { Grid } from '@mui/material';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header userName="Jane" />
+      <div style={{ padding: '20px' }}>
+        <Grid container spacing={3}>
+          <Grid item xs={12} md={6}>
+            <MarketSummary />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <SectorPerformance />
+          </Grid>
+          <Grid item xs={12}>
+            <MarketsAndChart />
+          </Grid>
+        </Grid>
+      </div>
     </div>
   );
 }
